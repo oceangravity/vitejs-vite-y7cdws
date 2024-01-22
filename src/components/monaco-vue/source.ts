@@ -1,5 +1,4 @@
-export const source = `
-  <script lang="ts" setup>
+export const source = `<script lang="ts" setup>
   import { ref } from 'vue'
   
   const msg = ref('hello world')
@@ -7,5 +6,4 @@ export const source = `
   
   <template>
       <div>{{ msg }}</div>
-  </template>
-`
+  </template>`
