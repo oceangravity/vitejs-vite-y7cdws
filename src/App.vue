@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue';
+import MonacoVue from './components/monaco-vue/MonacoVue.vue';
 </script>
 
 <template>
-  <HelloWorld />
+  <MonacoVue />
 </template>
