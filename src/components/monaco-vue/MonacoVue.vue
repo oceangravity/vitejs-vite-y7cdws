@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {setupMonacoEnv, loadOnigasm} from "./env";
 import * as monaco from "monaco-editor-core";
-import {loadGrammars, loadTheme} from "../monaco";
+import {loadGrammars, loadTheme} from "monaco-volar";
 import {getOrCreateModel} from "../monaco/utils";
 import { source as data } from "./source";
 import {onMounted, ref} from "vue";
