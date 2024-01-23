@@ -1,10 +1,10 @@
-import editorWorker from "monaco-editor-core/esm/vs/editor/editor.worker?worker";
+import editorWorker from "monaco-editor/esm/vs/editor/editor.worker?worker";
 import vueWorker from "monaco-volar/vue.worker?worker";
 import * as onigasm from "onigasm";
 import onigasmWasm from "onigasm/lib/onigasm.wasm?url";
 
 import type { LanguageService } from "@vue/language-service";
-import { editor, languages } from "monaco-editor-core";
+import { editor, languages } from "monaco-editor";
 import * as volar from "@volar/monaco";
 
 export function loadOnigasm() {
@@ -74,4 +74,6 @@ export function setupMonacoEnv(takeoverMode = false) {
       languages
     );
   }
+
+  return languages
 }

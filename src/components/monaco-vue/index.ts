@@ -1,5 +1,5 @@
 import { setupMonacoEnv, loadOnigasm } from "./env";
-import * as monaco from "monaco-editor-core";
+import * as monaco from "monaco-editor";
 import { loadGrammars, loadTheme } from "../monaco";
 import { getOrCreateModel } from "../monaco/utils";
 import data from "./Test.vue?raw";

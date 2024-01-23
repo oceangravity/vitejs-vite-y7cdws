@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import {setupMonacoEnv, loadOnigasm} from "./env";
-import * as monaco from "monaco-editor-core";
+import * as monaco from "monaco-editor";
 import {loadGrammars, loadTheme} from "monaco-volar";
 import {getOrCreateModel} from "../monaco/utils";
 import {source as data} from "./source";
@@ -9,11 +9,28 @@ import {onMounted, ref} from "vue";
 const editorContainer = ref<HTMLElement | null>(null);
 
 const afterReady = (theme: string) => {
+
+//   // extra libraries
+//   const libSource = [
+//     "declare class Facts {",
+//     "    /**",
+//     "     * Returns the next fact",
+//     "     */",
+//     "    static next():string",
+//     "}",
+//   ].join("\n");
+//   const libUri = "ts:filename/facts.d.ts";
+//   monaco.languages.typescript.javascriptDefaults.addExtraLib(libSource, libUri);
+// // When resolving definitions and references, the editor will try to use created models.
+// // Creating a model for the library allows "peek definition/references" commands to work with the library.
+//   monaco.editor.createModel(libSource, "typescript", monaco.Uri.parse(libUri));
+
   const model = getOrCreateModel(
       monaco.Uri.parse("file:///demo.vue"),
       "vue",
       data
   );
+
   const element = editorContainer.value!;
   const editorInstance = monaco.editor.create(element, {
     theme,
@@ -62,7 +79,8 @@ const afterReady = (theme: string) => {
 
 onMounted(() => {
   Promise.all([setupMonacoEnv(), loadOnigasm(), loadTheme(monaco.editor)]).then(
-      ([, , theme]) => {
+      ([languages, , theme]) => {
+        console.log(languages)
         afterReady(theme.dark);
       }
   );

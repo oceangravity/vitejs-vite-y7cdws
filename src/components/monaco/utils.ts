@@ -1,4 +1,4 @@
-import { Uri, editor, IDisposable } from "monaco-editor-core";
+import { Uri, editor, IDisposable } from "monaco-editor";
 
 export function debounce(fn: Function, n = 100) {
   let handle: any;

@@ -42,8 +42,8 @@ async function dispatchGrammars(
 }
 
 export async function loadGrammars(
-  monaco: typeof import("monaco-editor-core"),
-  editor: import("monaco-editor-core").editor.IStandaloneCodeEditor
+  monaco: typeof import("monaco-editor"),
+  editor: import("monaco-editor").editor.IStandaloneCodeEditor
 ) {
   const registry = new Registry({
     getGrammarDefinition: async (scopeName) => {
