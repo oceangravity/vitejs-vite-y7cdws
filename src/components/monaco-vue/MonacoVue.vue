@@ -3,7 +3,7 @@ import {setupMonacoEnv, loadOnigasm} from "./env";
 import * as monaco from "monaco-editor-core";
 import {loadGrammars, loadTheme} from "monaco-volar";
 import {getOrCreateModel} from "../monaco/utils";
-import { source as data } from "./source";
+import {source as data} from "./source";
 import {onMounted, ref} from "vue";
 
 const editorContainer = ref<HTMLElement | null>(null);
@@ -27,6 +27,12 @@ const afterReady = (theme: string) => {
       enabled: false,
     },
     "semanticHighlighting.enabled": true,
+  });
+
+  editorInstance.updateOptions({
+    lineNumbers: 'off',
+    glyphMargin: false,
+    folding: false
   });
 
   // Support for semantic highlighting
